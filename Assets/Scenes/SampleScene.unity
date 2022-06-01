@@ -693,11 +693,13 @@ GameObject:
   - component: {fileID: 228635652}
   - component: {fileID: 228635651}
   - component: {fileID: 228635653}
+  - component: {fileID: 228635656}
   - component: {fileID: 228635654}
   - component: {fileID: 228635650}
   - component: {fileID: 228635649}
   - component: {fileID: 228635648}
   - component: {fileID: 228635646}
+  - component: {fileID: 228635655}
   m_Layer: 8
   m_Name: Archer
   m_TagString: Player
@@ -897,6 +899,50 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 83570080}
+--- !u!68 &228635655
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228635645}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.43}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.12784445, y: -0.0018515587}
+  - {x: 0.3037389, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!114 &228635656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228635645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f6893341e23a7468444c85783b3d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choosePlayr: 1
+  healthBar: {fileID: 83570080}
+  maxHealth: 100
+  currentHealth: 0
+  magiciansHead: {fileID: 0}
+  magiciansFeet: {fileID: 0}
+  archersHead: {fileID: 0}
+  archersFeet: {fileID: 0}
+  swordsmansHead: {fileID: 0}
+  swordsmansFeet: {fileID: 0}
 --- !u!1 &276599866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,6 +1465,7 @@ GameObject:
   - component: {fileID: 1112055894}
   - component: {fileID: 1112055897}
   - component: {fileID: 1112055899}
+  - component: {fileID: 1112055902}
   m_Layer: 6
   m_Name: Magicians
   m_TagString: Player
@@ -1663,9 +1710,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   choosePlayr: 0
+  healthBar: {fileID: 1197205744}
   maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 1197205744}
+  magiciansHead: {fileID: 0}
+  magiciansFeet: {fileID: 0}
+  archersHead: {fileID: 0}
+  archersFeet: {fileID: 0}
+  swordsmansHead: {fileID: 0}
+  swordsmansFeet: {fileID: 0}
+--- !u!68 &1112055902
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112055890}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.42}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.3112837, y: 0}
+  - {x: 0.18074322, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1197205742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,6 +1886,7 @@ GameObject:
   - component: {fileID: 1400589587}
   - component: {fileID: 1400589586}
   - component: {fileID: 1400589588}
+  - component: {fileID: 1400589590}
   m_Layer: 0
   m_Name: Tilemap_Base
   m_TagString: Untagged
@@ -2966,6 +3042,27 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!50 &1400589590
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400589584}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1460209906
 GameObject:
   m_ObjectHideFlags: 0
@@ -3813,11 +3910,13 @@ GameObject:
   - component: {fileID: 2095859851}
   - component: {fileID: 2095859850}
   - component: {fileID: 2095859852}
+  - component: {fileID: 2095859855}
   - component: {fileID: 2095859853}
   - component: {fileID: 2095859849}
   - component: {fileID: 2095859848}
   - component: {fileID: 2095859847}
   - component: {fileID: 2095859845}
+  - component: {fileID: 2095859854}
   m_Layer: 7
   m_Name: Swordsman
   m_TagString: Player
@@ -4017,3 +4116,48 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 78535738}
+--- !u!68 &2095859854
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095859844}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.43}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.16976064, y: 0}
+  - {x: -0.17505683, y: 0.000000059604645}
+  - {x: 0.29591957, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!114 &2095859855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095859844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f6893341e23a7468444c85783b3d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choosePlayr: 2
+  healthBar: {fileID: 78535738}
+  maxHealth: 100
+  currentHealth: 0
+  magiciansHead: {fileID: 0}
+  magiciansFeet: {fileID: 0}
+  archersHead: {fileID: 0}
+  archersFeet: {fileID: 0}
+  swordsmansHead: {fileID: 0}
+  swordsmansFeet: {fileID: 0}

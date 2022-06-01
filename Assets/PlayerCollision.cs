@@ -1,10 +1,7 @@
 using UnityEngine;
 
-
-
 public class PlayerCollision : MonoBehaviour
 {
-
 	public enum Player
 	{
 		Magicians,
@@ -14,18 +11,42 @@ public class PlayerCollision : MonoBehaviour
 
 	public Player choosePlayr;
 
+	public HealthBar healthBar;
 	public int maxHealth = 100;
 	public int currentHealth;
 
-	public HealthBar healthBar;
+	bool magarcFlag = false;
+	bool magswoFlag = false;
+	public Collider2D magiciansHead;
+	public Collider2D magiciansFeet;
+
+	bool arcmagFlag = false;
+	bool arcswoFlag = false;
+	public Collider2D archersHead;
+	public Collider2D archersFeet;
+
+	bool swomagFlag = false;
+	bool swoarcFlag = false;
+	public Collider2D swordsmansHead;
+	public Collider2D swordsmansFeet;
+
 
 	// Start is called before the first frame update
 	void Start()
 	{
+		//Game start health 
 		currentHealth = maxHealth;
 		healthBar.SetMaxHealth(maxHealth);
+
+		//Colliders definitions	
+		magiciansHead = GameObject.Find("Magicians").GetComponent<EdgeCollider2D>();
+		magiciansFeet = GameObject.Find("Magicians").GetComponent<CircleCollider2D>();
+		archersHead = GameObject.Find("Archer").GetComponent<EdgeCollider2D>();
+		archersFeet = GameObject.Find("Archer").GetComponent<CircleCollider2D>();
+		swordsmansHead = GameObject.Find("Swordsman").GetComponent<EdgeCollider2D>();
+		swordsmansFeet = GameObject.Find("Swordsman").GetComponent<CircleCollider2D>();
 	}
-/*
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -33,28 +54,73 @@ public class PlayerCollision : MonoBehaviour
 		{
 			case Player.Magicians:
 
-
-
-				if (Input.GetButtonDown("MagJump"))
+				if (magiciansHead.IsTouching(archersFeet))
 				{
-					TakeDamage(20);
+					if(magarcFlag == false) TakeDamage(20);
+					magarcFlag = true;
+				}
+				else
+                {
+					magarcFlag = false; 
+                }
+
+				if (magiciansHead.IsTouching(swordsmansFeet))
+				{
+					if (magswoFlag == false) TakeDamage(20);
+					magswoFlag = true;
+				}
+				else
+				{
+					magswoFlag = false;
 				}
 
 				break;
 
 
 			case Player.Archer:
-				if (Input.GetButtonDown("ArcJump"))
+
+				if (archersHead.IsTouching(magiciansFeet))
 				{
-					TakeDamage(20);
+					if (arcmagFlag == false) TakeDamage(20);
+					arcmagFlag = true;
+				}
+				else
+				{
+					arcmagFlag = false;
+				}
+
+				if (archersHead.IsTouching(swordsmansFeet))
+				{
+					if (arcswoFlag == false) TakeDamage(20);
+					arcswoFlag = true;
+				}
+				else
+				{
+					arcswoFlag = false;
 				}
 
 				break;
 
 			case Player.Swordsman:
-				if (Input.GetButtonDown("SwoJump"))
+
+				if (swordsmansHead.IsTouching(magiciansFeet))
 				{
-					TakeDamage(20);
+					if (swomagFlag == false) TakeDamage(20);
+					swomagFlag = true;
+				}
+				else
+				{
+					swomagFlag = false;
+				}
+
+				if (swordsmansHead.IsTouching(archersFeet))
+				{
+					if (swoarcFlag == false) TakeDamage(20);
+					swoarcFlag = true;
+				}
+				else
+				{
+					swoarcFlag = false;
 				}
 
 				break;
@@ -62,50 +128,11 @@ public class PlayerCollision : MonoBehaviour
 		}
 
 	}
-*/
+
 	void TakeDamage(int damage)
 	{
 		currentHealth -= damage;
 
 		healthBar.SetHealth(currentHealth);
 	}
-
-	//Detect collisions between the GameObjects with Colliders attached
-	void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-        //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (collision.gameObject.name == "Archer")
-        {
-            //If the GameObject's name matches the one you suggest, output this message in the console
-            Debug.Log("Hit Archer");
-			TakeDamage(20);
-            
-        }
-
-        if (collision.gameObject.name == "Magicians")
-        {
-            //If the GameObject's name matches the one you suggest, output this message in the console
-            Debug.Log("Magicians");
-        }
-
-        if (collision.gameObject.name == "Swordsman")
-        {
-            //If the GameObject's name matches the one you suggest, output this message in the console
-            Debug.Log("Hit Swordsman");
-        }
-
-
-        /*
-                //Check for a match with the specific tag on any GameObject that collides with your GameObject
-
-                if (collision.gameObject.tag == "Player")
-                {
-                    //If the GameObject has the same tag as specified, output this message in the console
-                    Debug.Log("Do something else here");
-                }
-        */
-    }
-
-
 }
